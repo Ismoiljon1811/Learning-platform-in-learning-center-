@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Students in {{ team.name }}</h2>
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Date of Birth</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+    <tr>
+      <td>{{ student.user.username }}</td>
+      <td>{{ student.user.email }}</td>
+      <td>{{ student.date_of_birth }}</td>
+      <td>
+        {% if student.image %}
+          <img src="" alt="Image" style="width: 45px; height: 45px" class="rounded-circle">
+        {% else %}
+          No Image
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

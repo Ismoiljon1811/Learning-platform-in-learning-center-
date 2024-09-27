@@ -1,0 +1,27 @@
+{% extends 'teachers/teachers_dashboard.html' %}
+
+{% block content %}
+
+
+<table class="table"> 
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Team</th>
+        <th scope="col">Date of birth</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for student in students %}
+      <tr class="table-warning">
+        <td><img src="{{user.image.url}}" alt="avatar"
+            class="rounded-circle img-fluid" style="width: 150px;"></td>
+        <td>{{student.students}}</td>
+        <td>{{student.team}}</td>
+        <td>{{student.date_of_birth}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

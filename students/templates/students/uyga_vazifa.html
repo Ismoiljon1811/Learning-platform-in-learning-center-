@@ -1,0 +1,25 @@
+{% extends 'students/dashboard.html' %}
+
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><b>ID</b></th>
+      <th scope="col"><b>Name</b></th>
+      <th scope="col"><b>OY</b></th>
+      <th scope="col"><b>Dars</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for homework in homeworks %}
+    <tr class="table-warning">
+      <th scope="row">{{homework.id}}</th>
+      <td>{{homework.name}}</td>
+      <td>{{ homework.oy }}-oy</td>
+      <td>{{homework.dars}}-dars</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

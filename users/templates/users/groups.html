@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Teacher</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for team in teams %}
+    <tr>
+      <td>
+        <p class="fw-normal mb-1">{{team.name}}</p>
+        <p class="text-muted mb-0">IT department</p>
+      </td>
+      <td>
+        <span class="badge badge-success rounded-pill d-inline">Active</span>
+      </td>
+      <td><a href="{% url 'users:edit_teacher' team.id %}" class="btn btn-outline-info">
+        <i class="fa-solid fa-user-pen"> Edit</i>
+      </a></td>
+      <td>
+        <a href="{% url 'users:students_by_team' team.id %}" class="btn btn-link btn-sm btn-rounded">
+          Show students
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
